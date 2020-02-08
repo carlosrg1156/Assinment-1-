@@ -6,7 +6,7 @@ public class Wind_Chill {
 	
 	public static void main (String[] args) {
 		//variables
-		double Temperature,Wind_Speed,Wind_Chill;
+		double Temperature,Wind_Speed,Wind_Chill,Exit;
 		final int min_Temp= -45,
 				max_Temp= 40,
 				max_Speed = 60,
@@ -18,11 +18,14 @@ public class Wind_Chill {
 		String Output_request2 = "Enter the wind speed (must be >= 5 and <= 60):";
 		//Text Output
 		System.out.println("Hello, this project is designed to calculate wind chill");
-		System.out.print(Output_request1);
+		
 		
 		//While loop to determine if in range of Fahrenheit
-		
+	do {
+		out_Range=true;
 		do {
+			
+			System.out.print(Output_request1);
 			Temperature = User_Input.nextInt();
 			
 			if (Temperature >= min_Temp && Temperature <= max_Temp) {
@@ -31,7 +34,6 @@ public class Wind_Chill {
 		
 			else {
 				System.out.println("The Following Fahrenheit is not in the range of >= -45 and <= 40");
-				System.out.print(Output_request1);
 			}
 		}while (out_Range ==true); 
 		
@@ -56,11 +58,16 @@ public class Wind_Chill {
 		
 		// Wind Chill (oF) = 35.74 + 0.6215T - 35.75(V0.16) + 0.4275T(V0.16), 
 		Wind_Chill=35.74 + (0.6215*Temperature)-35.75*(Math.pow(Wind_Speed,0.16))+((0.4275*Temperature)*(Math.pow(Wind_Speed, 0.16)));
-		System.out.println("Wind Chill:"+ Wind_Chill);
+		System.out.println("Your calculated Wind Chill is:"+ Wind_Chill);
+		
+		System.out.println("Would you like to calculate a new Wind Chill? ");
+		System.out.println("Enter \'-1\' to end the program:");
+		Exit= User_Input.nextInt();
+	} while(Exit!=-1);
 		
 		
-		
-		
+		System.out.println("Programer's name: Carlos Gutierrez\n");
+		System.out.println("Program has now ended");
 	
 }
 }
